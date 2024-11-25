@@ -2,7 +2,7 @@ from classroom.asignatura import Asignatura
 
 class Grupo:
     grado = "Grado 12"  
-    
+
     def _init_(self, grupo="grupo predeterminado", asignaturas=None, estudiantes=None):
         self._grupo = grupo
         self._asignaturas = asignaturas if asignaturas is not None else []
