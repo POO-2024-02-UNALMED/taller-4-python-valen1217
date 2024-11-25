@@ -1,4 +1,4 @@
-from classroom.asignatura import Asignatura
+from asignatura import Asignatura 
 
 class Grupo:
     grado = "Grado 6" 
@@ -8,19 +8,18 @@ class Grupo:
         self._asignaturas = asignaturas if asignaturas else []
         self.listadoAlumnos = estudiantes if estudiantes else []
 
-    def agregarAlumno(self, alumno, lista=None):
-        if lista is None:
-            lista = []
-        lista.append(alumno)
-        self.listadoAlumnos.extend(lista) 
+    def agregarAlumno(self, alumno):
+        """Agrega un alumno al listado de alumnos del grupo."""
+        self.listadoAlumnos.append(alumno)
 
     def listadoAsignaturas(self, *nombres_asignaturas):
+        """Añade asignaturas con los nombres proporcionados."""
         for nombre in nombres_asignaturas:
-            self._asignaturas.append(Asignatura(nombre))  
+            self._asignaturas.append(Asignatura(nombre)) 
 
     def __str__(self):
         alumnos_str = ", ".join(self.listadoAlumnos)
-        return f"Grupo de estudiantes: {self._grupo} ({alumnos_str})"
+        return f"Grupo de estudiantes: {self._grupo}"
 
     @classmethod
     def asignarNombre(cls, nombre="Grado 6"):
